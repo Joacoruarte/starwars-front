@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'starwars-outline';
+  src: url('../../public/fonts/SfDistantGalaxyOutlineItalic-4yA4.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'starwars-alternate';
+  src: url('../../public/fonts/SfDistantGalaxyAlternate-OE4d.ttf') format('truetype');
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 30, 33, 45;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  body {
+    @apply container min-h-[100vh] mx-auto text-[rgb(var(--foreground-rgb))] px-4;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .01) 0%, rgba(0, 0, 0, 1) 70%),
+    url('/images/galaxy-pattern3.jpeg') center center fixed;
+  }
+}
+
+@layer components {
+  .starwars-logo {
+    filter: brightness(1.9) drop-shadow(3px 2px 0px yellow);
+  }
+}

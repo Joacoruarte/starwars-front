@@ -8,11 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        starwarsoutline: ["starwars-outline", "sans-serif"],
+        starwarsalternate: ['starwars-alternate', 'sans-serif']
       },
+      colors: {
+        'light-gray': 'rgb(30, 33, 45)',
+        'yellow-sw': '#ffcc00',
+        'yellow-sw-hover': '#bc9803',
+      }
     },
   },
   plugins: [],
