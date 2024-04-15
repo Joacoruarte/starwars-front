@@ -91,7 +91,6 @@ export default function CharactersProvider({
         characters: charactersPages,
       });
     } catch (error) {
-      console.log('Error fetching characters by specie', error);
     } finally {
       setLoading(false);
     }
@@ -113,7 +112,6 @@ export default function CharactersProvider({
         });
       }
     } catch (error) {
-      console.log('Error fetching characters', error);
       setError('Error fetching characters');
     } finally {
       setLoading(false);
@@ -132,7 +130,6 @@ export default function CharactersProvider({
         ],
       });
     } catch (error) {
-      console.log('Error fetching characters', error);
     } finally {
       setLoading(false);
     }
@@ -164,7 +161,6 @@ export default function CharactersProvider({
         setError(error.message)
         return
       };
-      console.log('Error fetching characters', error);
       setError('Error fetching characters');
     } finally {
       if (!controller.signal.aborted) {

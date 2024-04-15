@@ -30,11 +30,7 @@ export default function SearchInput({
     try {
       await onSearchItems(value, controller);
     } catch (error: any) {
-      if (error.name === 'AbortError') {
-        console.log('Request aborted');
-      } else {
-        console.error('Error occurred:', error);
-      }
+        console.error('Error occurred seaching characters:', error);
     }
   };
 

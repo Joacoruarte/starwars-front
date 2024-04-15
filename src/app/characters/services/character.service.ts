@@ -20,7 +20,6 @@ export const getCharacters = async ({ page, search, controller }: GetCharactersP
         const url = new URL(`${BASE_URL}/people`);
         if (page) url.searchParams.append('page', page);
         if (search) url.searchParams.append('search', search);
-        console.log(controller);
         const options = controller ? { signal: controller.signal } : {};
         const response = await fetch(url.toString(), options);
         const data = await response.json();
