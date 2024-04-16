@@ -14,7 +14,7 @@ export default function HamburguerMenu({
       style={{
         zIndex: isActive ? 1000 : 0,
         position: isActive ? 'fixed' : 'unset',
-        top: isActive ? '1rem' : 'unset',
+        top: isActive ? '2rem' : 'unset',
         right: isActive ? '1rem' : 'unset',
       }}
       onClick={() => onToggle(!isActive)}
