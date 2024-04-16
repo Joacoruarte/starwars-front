@@ -44,7 +44,7 @@ export default function Filter<T extends Record<string, any>>({
         <div
           className={clsx({
             ['flex flex-col top-12 left-0 py-0 px-2 opacity-0 absolute max-h-0 max-w-full overflow-hidden transition-all duration-300 rounded-3xl']: !openItemsDropdown,
-            ['flex overflow-y-hidden opacity-100 transition-all duration-300 max-w-full z-20 flex-col gap-2 absolute top-12 left-0 bg-light-gray rounded-3xl border px-2 py-2 max-h-40']:
+            ['flex overflow-y-auto opacity-100 transition-all duration-300 max-w-full z-20 flex-col gap-2 absolute top-12 left-0 bg-light-gray rounded-3xl border px-2 py-2 max-h-40']:
               openItemsDropdown,
           })}
         >
