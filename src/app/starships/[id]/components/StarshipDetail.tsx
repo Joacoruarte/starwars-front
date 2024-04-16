@@ -18,26 +18,26 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
 
       {starship && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
-          <h1 className='text-4xl font-starwarsalternate text-white'>
+          <h1 className='sm:text-4xl text-2xl font-starwarsalternate text-white'>
             Nave - {starship.name}
           </h1>
           <div className='w-full h-[1px] bg-gray-600' />
 
           {/* MAIN CHARACTERISTICS */}
           <div className='flex flex-col gap-4 w-full'>
-            <h4 className='text-xl underline underline-offset-4 text-left font-semibold text-white'>
+            <h4 className='sm:text-xl text-lg underline underline-offset-4 text-left font-semibold text-white'>
               Caracteristicas 📝:
             </h4>
-            <ul className='flex w-full items-center gap-2'>
+            <ul className='flex w-full flex-wrap items-center gap-2'>
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>Modelo:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>Modelo:</p>
                 <p className='text-base text-gray-300'>
                   {starship.model === 'unknown' ? '- ,' : `${starship.model},`}
                 </p>
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>
+                <p className='sm:text-lg text-md font-semibold text-white'>
                   Capacidad de carga:
                 </p>
                 <p className='text-base text-gray-300'>
@@ -47,7 +47,7 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
                 </p>
               </li>
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>
+                <p className='sm:text-lg text-md font-semibold text-white'>
                   Costo en creditos:
                 </p>
                 <p className='text-base text-gray-300'>
@@ -59,12 +59,12 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
 
           {/* CHARACTERS */}
           <div className='flex flex-col gap-4 w-full'>
-            <h4 className='text-xl underline underline-offset-4 text-left font-semibold text-white'>
+            <h4 className='sm:text-xl text-lg underline underline-offset-4 text-left font-semibold text-white'>
               Pilotos 👨‍✈️:
             </h4>
             <ul className='flex w-full items-center flex-wrap gap-4'>
               {starship.pilots.length === 0 ? (
-                <p className='text-lg text-gray-300'>
+                <p className='sm:text-lg text-md text-gray-300'>
                   No se encontrarón personajes que hayan pilotado esta nave.
                 </p>
               ) : (
@@ -74,7 +74,7 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
                   (character: Character, index) => (
                     <li
                       key={character.id}
-                      className='text-lg text-gray-300 font-starwarsoutline hover:text-yellow-sw transition-colors duration-200 cursor-pointer'
+                      className='sm:text-lg text-md text-gray-300 font-starwarsoutline hover:text-yellow-sw transition-colors duration-200 cursor-pointer'
                     >
                       <Link href={`/characters/${character.id}`}>
                         {character.name}
@@ -89,7 +89,7 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
 
           {/* FILMS */}
           <div className='flex flex-col gap-4 w-full'>
-            <h4 className='text-xl underline  underline-offset-4 text-left font-semibold text-white'>
+            <h4 className='sm:text-xl text-lg underline  underline-offset-4 text-left font-semibold text-white'>
               Peliculas 🍿:
             </h4>
             <ul className='flex gap-8 w-full flex-col'>

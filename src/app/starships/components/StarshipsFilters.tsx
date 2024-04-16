@@ -52,7 +52,7 @@ export default function StarshipsFilters() {
         <SearchInput 
           handleSearchValue={starshipsData.handleSearch}
           onSearchItems={handleSearchStarships}
-          placeholder='Busca tu personaje...'
+          placeholder='Busca una pelicula...'
         />
       </div>
     </div>

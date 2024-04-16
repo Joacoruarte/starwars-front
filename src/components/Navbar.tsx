@@ -57,7 +57,7 @@ export default function Navbar() {
       <ul
         className={clsx({
           ['sm:flex hidden sm:gap-8']: !isActive,
-          ['sm:flex sm:gap-8 gap-10 flex sm:flex-row flex-col sm:justify-end justify-center items-center sm:[position:unset] absolute sm:right-0 top-1/2 left-1/2 z-50 sm:translate-x-0 sm:traslate-y-0 -translate-x-1/2 -translate-y-1/2 sm:backdrop-blur-none sm:bg-none backdrop-blur-md bg-[#061727b1] sm:w-auto w-screen sm:h-auto h-screen']:
+          ['sm:flex sm:gap-8 gap-10 flex sm:flex-row flex-col sm:justify-end justify-center items-center sm:[position:unset] fixed sm:right-0 top-1/2 left-1/2 z-50 sm:translate-x-0 sm:traslate-y-0 -translate-x-1/2 -translate-y-1/2 sm:backdrop-blur-none sm:bg-none backdrop-blur-md bg-[#061727b1] sm:w-auto w-screen sm:h-auto h-[100dvh]']:
             isActive,
         })}
       >

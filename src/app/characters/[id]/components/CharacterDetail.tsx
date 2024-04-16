@@ -18,19 +18,19 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
 
       {character && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
-          <h1 className='text-4xl font-starwarsalternate text-white'>
+          <h1 className='sm:text-4xl text-2xl font-starwarsalternate text-white'>
             {character.name}
           </h1>
           <div className='w-full h-[1px] bg-gray-600' />
 
           {/* MAIN CHARACTERISTICS */}
           <div className='flex flex-col gap-4 w-full'>
-            <h4 className='text-xl underline underline-offset-4 text-left font-semibold text-white'>
+            <h4 className='sm:text-xl text-lg underline underline-offset-4 text-left font-semibold text-white'>
               Caracteristicas 📝:
             </h4>
-            <ul className='flex w-full items-center gap-2'>
+            <ul className='flex w-full flex-wrap items-center gap-2'>
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>Altura:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>Altura:</p>
                 <p className='text-base text-gray-300'>
                   {character.height === 'unknown'
                     ? '- ,'
@@ -39,7 +39,7 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>Peso:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>Peso:</p>
                 <p className='text-base text-gray-300'>
                   {character.mass === 'unknown'
                     ? '- ,'
@@ -48,12 +48,12 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>Genero:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>Genero:</p>
                 <p className='text-base text-gray-300'>{character.gender},</p>
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='text-lg font-semibold text-white'>Especie:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>Especie:</p>
                 <p className='text-base text-gray-300'>
                   {character.species?.[0]},
                 </p>
@@ -71,13 +71,13 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
 
           {/* STARSHIPS */}
           <div className='flex flex-col gap-4 w-full'>
-            <h4 className='text-xl underline  underline-offset-8 text-left font-semibold text-white'>
+            <h4 className='sm:text-xl text-lg underline  underline-offset-8 text-left font-semibold text-white'>
               Naves espaciales 🚀:
             </h4>
 
             <ul className='flex gap-8 w-full items-center'>
               {character.starships.length === 0 ? (
-                <p className='text-lg  text-gray-300'>
+                <p className='sm:text-lg text-md  text-gray-300'>
                   No cuenta con naves espaciales este personaje.
                 </p>
               ) : (
@@ -88,7 +88,7 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
                     <li key={starship.id} className='flex items-center gap-3'>
                       <Link
                         href={`/starships/${starship.id}`}
-                        className='text-lg text-left text-white hover:text-yellow-sw transition-colors duration-200 cursor-pointer font-starwarsoutline'
+                        className='sm:text-lg text-md text-left text-white hover:text-yellow-sw transition-colors duration-200 cursor-pointer font-starwarsoutline'
                       >
                         {starship.name}
                       </Link>
@@ -101,12 +101,12 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
 
           {/* FILMS */}
           <div className='flex flex-col gap-4 w-full'>
-            <h4 className='text-xl underline  underline-offset-4 text-left font-semibold text-white'>
+            <h4 className='sm:text-xl text-lg underline  underline-offset-4 text-left font-semibold text-white'>
               Peliculas 🍿:
             </h4>
             <ul className='flex gap-8 w-full flex-col'>
               {character.films.length === 0 ? (
-                <p className='text-lg text-gray-300'>
+                <p className='sm:text-lg text-md text-gray-300'>
                   No se encontrarón peliculas en las que haya participado este
                   personaje.
                 </p>
@@ -120,7 +120,7 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
                   >
                     <Link
                       href={`/films/${film.id}`}
-                      className='text-lg text-left text-white hover:text-yellow-sw transition-colors duration-200 cursor-pointer font-starwarsalternate'
+                      className='sm:text-lg text-md text-left text-white hover:text-yellow-sw transition-colors duration-200 cursor-pointer font-starwarsalternate'
                     >
                       {film.title}
                     </Link>

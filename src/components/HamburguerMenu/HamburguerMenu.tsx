@@ -11,7 +11,12 @@ export default function HamburguerMenu({
 }: HamburguerMenuProps) {
   return (
     <div
-      style={{ zIndex: isActive ? 1000 : 0 }}
+      style={{
+        zIndex: isActive ? 1000 : 0,
+        position: isActive ? 'fixed' : 'unset',
+        top: isActive ? '1rem' : 'unset',
+        right: isActive ? '1rem' : 'unset',
+      }}
       onClick={() => onToggle(!isActive)}
       className={`${s.hamburger_lines} ${isActive ? s.active : ''}`}
     >

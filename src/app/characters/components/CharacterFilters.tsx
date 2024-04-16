@@ -90,7 +90,7 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
     <div className='flex flex-col gap-4'>
       <h4 className='text-xl font-[600]'>Filtros:</h4>
 
-      <div className='flex items-center gap-4'>
+      <div className='flex flex-wrap items-center gap-4'>
         {/* SPECIES FILTER */}
         <Filter
           items={species}

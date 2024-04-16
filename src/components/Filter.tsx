@@ -43,8 +43,8 @@ export default function Filter<T extends Record<string, any>>({
         {isFilterable && <ChevronDownIcon className='w-7 h-7' />}
         <div
           className={clsx({
-            ['hidden']: !openItemsDropdown,
-            ['max-w-full flex z-20 flex-col gap-2 absolute top-12 left-0 bg-light-gray rounded-3xl border px-2 py-2 max-h-40 overflow-auto']:
+            ['flex flex-col top-12 left-0 py-0 px-2 opacity-0 absolute max-h-0 max-w-full overflow-hidden transition-all duration-300 rounded-3xl']: !openItemsDropdown,
+            ['flex overflow-y-hidden opacity-100 transition-all duration-300 max-w-full z-20 flex-col gap-2 absolute top-12 left-0 bg-light-gray rounded-3xl border px-2 py-2 max-h-40']:
               openItemsDropdown,
           })}
         >
@@ -53,7 +53,7 @@ export default function Filter<T extends Record<string, any>>({
               {index === 0 && (
                 <p
                   className={clsx(
-                    'px-4 py-2 hover:bg-gray-800 transition-colors duration-200 rounded-3xl',
+                    'px-4 py-2 hover:bg-gray-800 transition-colors duration-200 rounded-3xl cursor-pointer',
                     {
                       ['bg-gray-800']:
                         selectedItem === 'Todos' || !selectedItem,
@@ -70,7 +70,7 @@ export default function Filter<T extends Record<string, any>>({
               )}
               <p
                 className={clsx(
-                  'px-4 py-2 hover:bg-gray-800 transition-colors duration-200 rounded-3xl',
+                  'px-4 py-2 hover:bg-gray-800 transition-colors duration-200 rounded-3xl cursor-pointer',
                   {
                     ['bg-gray-800']: selectedItem === item[itemPropertyName],
                   }

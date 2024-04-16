@@ -3,7 +3,7 @@ import ListOfItems from '@/components/ListOfItems';
 import { useStarWarsContextTyped } from '@/provider/starwars.hook';
 import { Starship } from '../models/starship.t';
 import StarshipCard from './StarshipCard';
-import StarshipsFilters from './StarshipsFiltets';
+import StarshipsFilters from './StarshipsFilters';
 import { poppins } from '@/app/fonts';
 
 export default function Starships() {

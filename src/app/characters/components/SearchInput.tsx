@@ -1,3 +1,6 @@
+'use client'
+import { useStarWarsContextTyped } from '@/provider/starwars.hook';
+import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { useEffect, useState } from 'react';
 
 interface SearchInputProps {
@@ -14,6 +17,7 @@ export default function SearchInput({
   onSearchItems,
   handleSearchValue
 }: SearchInputProps) {
+  const starwarsData = useStarWarsContextTyped();
   const [abortController, setAbortController] =
     useState<AbortController | null>(null);
 
@@ -43,11 +47,16 @@ export default function SearchInput({
   }, [abortController]);
 
   return (
-    <input
-      type='search'
-      placeholder={placeholder}
-      className='bg-white py-2 rounded-md px-4 text-black'
-      onChange={handleChange}
-    />
+    <div className='relative w-max'>
+      {starwarsData.search.length === 0 && (
+        <MagnifyingGlassIcon className='text-gray-300 absolute w-7 h-7 top-1/2 -translate-y-1/2 right-1'/>
+      )}
+      <input
+        type='search'
+        placeholder={placeholder}
+        className='bg-white pl-4 pr-6 py-2 rounded-md text-black'
+        onChange={handleChange}
+      />
+    </div>
   );
 }

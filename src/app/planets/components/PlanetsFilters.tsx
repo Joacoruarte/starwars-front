@@ -52,7 +52,7 @@ export default function PlanetsFilters() {
         <SearchInput 
           handleSearchValue={planetsData.handleSearch}
           onSearchItems={handleSearchPlanets}
-          placeholder='Busca tu personaje...'
+          placeholder='Busca un planeta...'
         />
       </div>
     </div>
