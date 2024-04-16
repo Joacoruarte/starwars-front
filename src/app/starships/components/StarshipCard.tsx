@@ -29,7 +29,7 @@ export default function StarshipCard({
       </div>
       <div className='mb-4'>
         <h4 className='text-lg font-semibold text-white'>
-          Capacidad de pasajeros:
+          Capacidad de carga:
         </h4>
         <p className='text-lg text-gray-300'>{cargo_capacity}</p>
       </div>
