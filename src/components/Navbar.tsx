@@ -40,14 +40,16 @@ export default function Navbar() {
   return (
     <nav className='mb-8 sm:bg-none bg-gray-900 p-4 flex items-center lg:flex-row sm:flex-col flex-row justify-between gap-8'>
       <div className='sm:w-max sm:h-max w-[120px]'>
-        <Image
-          src={'/images/starwars-logo.png'}
-          className='starwars-logo'
-          width={150}
-          height={150}
-          priority
-          alt='Starwars logo'
-        />
+        <Link href={'/'}>
+          <Image
+            src={'/images/starwars-logo.png'}
+            className='starwars-logo'
+            width={150}
+            height={150}
+            priority
+            alt='Starwars logo'
+          />
+        </Link>
       </div>
 
       <HamburguerMenu isActive={isActive} onToggle={handleToggle} />
@@ -67,7 +69,8 @@ export default function Navbar() {
               {
                 ['underline underline-offset-8 text-yellow-400']:
                   pathname === route.path,
-                ['animate-jump animate-once animate-ease-out animate-duration-500']: isActive,
+                ['animate-jump animate-once animate-ease-out animate-duration-500']:
+                  isActive,
               }
             )}
           >

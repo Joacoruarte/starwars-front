@@ -11,8 +11,8 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
   return (
     <>
       {!character && (
-        <div>
-          <h1>Character not found</h1>
+        <div className='grid place-content-center h-[400px]'>
+          <h1 className='text-2xl'>Personaje no encontrado</h1>
         </div>
       )}
 

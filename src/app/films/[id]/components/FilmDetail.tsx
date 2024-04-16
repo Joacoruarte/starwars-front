@@ -11,8 +11,8 @@ export default function FilmDetail({ film }: FilmDetailProps) {
   return (
     <>
       {!film && (
-        <div>
-          <h1>Film not found</h1>
+        <div className='grid place-content-center h-[400px]'>
+          <h1 className='text-2xl'>Pelicula no econtrada</h1>
         </div>
       )}
 
@@ -60,16 +60,19 @@ export default function FilmDetail({ film }: FilmDetailProps) {
             <ul className='flex w-full items-center flex-wrap gap-4'>
               {Array.isArray(film.characters) &&
                 typeof film.characters[0] !== 'string' &&
-                (film.characters as Character[]).map((character: Character, index) => (
-                  <li
-                    key={character.id}
-                    className='text-lg text-gray-300 font-starwarsoutline hover:text-yellow-sw transition-colors duration-200 cursor-pointer'
-                  >
-                    <Link href={`/characters/${character.id}`}>
-                        {character.name}{index === film.characters.length - 1 ? '.' : ','}
-                    </Link>
-                  </li>
-                ))}
+                (film.characters as Character[]).map(
+                  (character: Character, index) => (
+                    <li
+                      key={character.id}
+                      className='text-lg text-gray-300 font-starwarsoutline hover:text-yellow-sw transition-colors duration-200 cursor-pointer'
+                    >
+                      <Link href={`/characters/${character.id}`}>
+                        {character.name}
+                        {index === film.characters.length - 1 ? '.' : ','}
+                      </Link>
+                    </li>
+                  )
+                )}
             </ul>
           </div>
 

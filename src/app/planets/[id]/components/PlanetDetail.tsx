@@ -9,18 +9,20 @@ interface PlanetDetailProps {
 }
 
 export default function PlanetDetail({ planet }: PlanetDetailProps) {
+  console.log(planet?.residents);
+
   return (
     <>
       {!planet && (
-        <div>
-          <h1>Planet not found</h1>
+        <div className='grid place-content-center h-[400px]'>
+          <h1 className='text-2xl'>Planeta no encontrado</h1>
         </div>
       )}
 
       {planet && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
           <h1 className='text-4xl font-starwarsalternate text-white'>
-            {planet.name}
+            Planeta - {planet.name}
           </h1>
           <div className='w-full h-[1px] bg-gray-600' />
 
@@ -57,10 +59,15 @@ export default function PlanetDetail({ planet }: PlanetDetailProps) {
           {/* CHARACTERS */}
           <div className='flex flex-col gap-4 w-full'>
             <h4 className='text-xl underline underline-offset-4 text-left font-semibold text-white'>
-              Pilotos 👨‍✈️:
+              Residentes 🧑‍🤝‍🧑:
             </h4>
             <ul className='flex w-full items-center flex-wrap gap-4'>
-              {Array.isArray(planet.residents) &&
+              {planet.residents.length === 0 ? (
+                <p className='text-lg text-gray-300'>
+                  No se encontrarón residentes en este planeta.
+                </p>
+              ) : (
+                Array.isArray(planet.residents) &&
                 typeof planet.residents[0] !== 'string' &&
                 (planet.residents as Character[]).map(
                   (character: Character, index) => (
@@ -74,7 +81,8 @@ export default function PlanetDetail({ planet }: PlanetDetailProps) {
                       </Link>
                     </li>
                   )
-                )}
+                )
+              )}
             </ul>
           </div>
 

@@ -11,15 +11,15 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
   return (
     <>
       {!starship && (
-        <div>
-          <h1>starship not found</h1>
+        <div className='grid place-content-center h-[400px]'>
+          <h1 className='text-2xl'>Nave no encontrada</h1>
         </div>
       )}
 
       {starship && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
           <h1 className='text-4xl font-starwarsalternate text-white'>
-            {starship.name}
+            Nave - {starship.name}
           </h1>
           <div className='w-full h-[1px] bg-gray-600' />
 
@@ -63,7 +63,12 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
               Pilotos 👨‍✈️:
             </h4>
             <ul className='flex w-full items-center flex-wrap gap-4'>
-              {Array.isArray(starship.pilots) &&
+              {starship.pilots.length === 0 ? (
+                <p className='text-lg text-gray-300'>
+                  No se encontrarón personajes que hayan pilotado esta nave.
+                </p>
+              ) : (
+                Array.isArray(starship.pilots) &&
                 typeof starship.pilots[0] !== 'string' &&
                 (starship.pilots as Character[]).map(
                   (character: Character, index) => (
@@ -77,10 +82,10 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
                       </Link>
                     </li>
                   )
-                )}
+                )
+              )}
             </ul>
           </div>
-
 
           {/* FILMS */}
           <div className='flex flex-col gap-4 w-full'>
