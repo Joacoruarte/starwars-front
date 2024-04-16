@@ -3,6 +3,8 @@ import Characters from './Characters';
 import CharactersProvider from '../provider/Characters.provider';
 import { CharacterResponse } from '../models/character.t';
 import { Specie } from '@/models';
+import { StarWarsProvider } from '@/provider/StarWars.provider';
+import { Entity } from '@/models/enums/entity.enum';
 
 interface ContainerCharactersProps {
   characters: CharacterResponse;
@@ -14,8 +16,8 @@ export default function ContainerCharacters({
   species,
 }: ContainerCharactersProps) {
   return (
-    <CharactersProvider characters={characters} species={species}>
-      <Characters />
-    </CharactersProvider>
+    <StarWarsProvider entity={Entity.CHARACTERS} defaultData={characters}>
+      <Characters species={species} />
+    </StarWarsProvider>
   );
 }

@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import type { Character as CharacterType } from '../models/character.t';
+import type { Character } from '../models/character.t';
 
-export default function Character({
+export default function CharacterCard({
   id,
   name,
   height,
   mass,
   gender,
   species,
-}: Partial<CharacterType>) {
+}: Partial<Character>) {
   return (
     <article className='bg-light-gray rounded-xl p-6 shadow-xl'>
       <div className='mb-4'>

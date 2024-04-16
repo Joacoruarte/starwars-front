@@ -1,1 +1,2 @@
-export * from './species.t';
+export * from './enums/entity.enum';
+export * from './interfaces/species.t';

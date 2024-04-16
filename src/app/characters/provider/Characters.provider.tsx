@@ -52,13 +52,13 @@ export default function CharactersProvider({
   const [search, setSearch] = useState('');
   const [selectedSpecie, setSelectedSpecie] = useState('Todos');
   const [charactersHistory, setCharactersHistory] = useState<CharactersHistory>(
-    {
-      count: characters.count,
-      characters: [
-        characters.results,
-        ...new Array(Math.ceil(characters.count / itemsPerPage - 1)).fill([]),
-      ],
-    }
+  {
+    count: characters.count,
+    characters: [
+      characters.results,
+      ...new Array(Math.ceil(characters.count / itemsPerPage - 1)).fill([]),
+    ],
+  }
   );
 
   const handleCurrentPage = (page: number) => {

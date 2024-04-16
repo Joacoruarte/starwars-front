@@ -16,9 +16,11 @@ const config: Config = {
         'light-gray': 'rgb(30, 33, 45)',
         'yellow-sw': '#ffcc00',
         'yellow-sw-hover': '#bc9803',
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 };
 export default config;

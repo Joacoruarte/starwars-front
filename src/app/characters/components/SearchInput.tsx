@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { CharactersContext } from '../provider/Characters.provider';
+import { useEffect, useState } from 'react';
 
 interface SearchInputProps {
   placeholder?: string;
+  handleSearchValue: (value: string) => void;
   onSearchItems: (
     searchTerm: string,
     controller: AbortController
@@ -12,14 +12,14 @@ interface SearchInputProps {
 export default function SearchInput({
   placeholder = 'Buscar...',
   onSearchItems,
+  handleSearchValue
 }: SearchInputProps) {
-  const charactersData = useContext(CharactersContext);
   const [abortController, setAbortController] =
     useState<AbortController | null>(null);
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    charactersData.handleSearch(value);
+    handleSearchValue(value);
     
     if (abortController) {
       abortController.abort();

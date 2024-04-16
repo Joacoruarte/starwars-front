@@ -1,6 +1,5 @@
 import { redirect } from 'next/navigation';
 import { getCharacterById } from '../services/character.service';
-import { Character } from '../models/character.t';
 import CharacterDetail from './components/CharacterDetail';
 
 interface CharacterDetailPageProps {

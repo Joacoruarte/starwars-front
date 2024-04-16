@@ -10,7 +10,11 @@ interface CharacterDetailProps {
 export default function CharacterDetail({ character }: CharacterDetailProps) {
   return (
     <>
-      {!character && <div>Character not found</div>}
+      {!character && (
+        <div>
+          <h1>Character not found</h1>
+        </div>
+      )}
 
       {character && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
@@ -22,7 +26,7 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
           {/* MAIN CHARACTERISTICS */}
           <div className='flex flex-col gap-4 w-full'>
             <h4 className='text-xl underline underline-offset-4 text-left font-semibold text-white'>
-              Caracteristicas  📝:
+              Caracteristicas 📝:
             </h4>
             <ul className='flex w-full items-center gap-2'>
               <li className='flex items-center gap-2'>
@@ -37,7 +41,9 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
               <li className='flex items-center gap-2'>
                 <p className='text-lg font-semibold text-white'>Peso:</p>
                 <p className='text-base text-gray-300'>
-                  {character.mass === 'unknown' ? '- ,' : `${character.mass} kg,`}
+                  {character.mass === 'unknown'
+                    ? '- ,'
+                    : `${character.mass} kg,`}
                 </p>
               </li>
 
@@ -101,7 +107,8 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
             <ul className='flex gap-8 w-full flex-col'>
               {character.films.length === 0 ? (
                 <p className='text-lg text-gray-300'>
-                    No se encontrarón peliculas en las que haya participado este personaje.
+                  No se encontrarón peliculas en las que haya participado este
+                  personaje.
                 </p>
               ) : (
                 Array.isArray(character.films) &&

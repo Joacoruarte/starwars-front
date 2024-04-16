@@ -1,30 +1,45 @@
 'use client';
-import { Poppins } from 'next/font/google';
+import type { Character } from '../models/character.t';
+import { Specie } from '@/models';
+import { poppins } from '@/app/fonts';
+import ListOfItems from '@/components/ListOfItems';
 import CharacterFilters from './CharacterFilters';
-import ListOfCharacters from './ListOfCharacters';
-import { useContext } from 'react';
-import { CharactersContext } from '../provider/Characters.provider';
+import CharacterCard from './CharacterCard';
+import { useStarWarsContextTyped } from '@/provider/starwars.hook';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-});
+interface CharactersProps {
+  species: Specie[];
+}
 
-export default function Characters({}) {
-  const charactersData = useContext(CharactersContext);
-  const charactersResults = charactersData.charactersHistory.count;
+export default function Characters({ species }: CharactersProps) {
+  const charactersData = useStarWarsContextTyped<Character>();
+  const charactersResults = charactersData.data.count;
   const pageCount = Math.ceil(charactersResults / charactersData.itemsPerPage);
 
   return (
     <div className={`${poppins.className} flex flex-col gap-4 w-full`}>
-      <CharacterFilters />
+      <CharacterFilters species={species} />
 
-      <ListOfCharacters
-        pageHistory={charactersData.charactersHistory}
-        onGetCharacters={charactersData.fetchCharactersByPage}
-        loading={charactersData.loadingCharacters}
+      <ListOfItems
+        pageHistory={charactersData.data}
+        onGetData={charactersData.fetchDataByPage}
+        loading={charactersData.loading}
         pageCount={pageCount}
-      />
+      >
+        {charactersData.data.results[charactersData.currentPage]?.map(
+          (character) => (
+            <CharacterCard
+              key={character?.id}
+              id={character?.id}
+              name={character?.name}
+              height={character?.height}
+              mass={character?.mass}
+              gender={character?.gender}
+              species={character?.species}
+            />
+          )
+        )}
+      </ListOfItems>
     </div>
   );
 }

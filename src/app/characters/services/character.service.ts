@@ -15,6 +15,8 @@ interface GetCharactersProps {
     controller?: AbortController;
 }
 
+const a = new AbortController()
+
 export const getCharacters = async ({ page, search, controller }: GetCharactersProps): Promise<CharacterResponse>  => {
     try {
         const url = new URL(`${BASE_URL}/people`);
@@ -25,11 +27,9 @@ export const getCharacters = async ({ page, search, controller }: GetCharactersP
         const data = await response.json();
         return data;
     } catch (error: DOMException | any) {
-        console.error('Error fetching characters', error);
         if (error.name === 'AbortError') {
             throw new Error('Request aborted');
-        }
-        
+        }        
         throw new Error(error.name);
     }
 }
@@ -47,7 +47,7 @@ export const getCharactersBySpecieId = async (id: string): Promise<{ count: numb
 
 export const getCharacterById = async (id: string): Promise<Character> => {
     try {
-        const response = await fetch(`${BASE_URL}/people/${id}`);
+        const response = await fetch(`${BASE_URL}/people/${id}/detail`);
         const data = await response.json(); 
         if (response.status === 404) {
             throw new Error('Character not found');

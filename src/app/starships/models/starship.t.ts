@@ -1,3 +1,6 @@
+import { Character } from "@/app/characters/models/character.t";
+import { Film } from "@/app/films/models/film.t";
+
 export interface Starship {
   id: string;
   name: string;
@@ -13,9 +16,16 @@ export interface Starship {
   hyperdrive_rating: string;
   MGLT: string;
   starship_class: string;
-  pilots: any[];
-  films: string[];
+  pilots: string[] | Character[];
+  films: string[] | Film[];
   created: string;
   edited: string;
   url: string;
+}
+
+export interface StarshipResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Starship[];
 }
