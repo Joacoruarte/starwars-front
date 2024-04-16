@@ -34,7 +34,7 @@ export default function StarshipsFilters() {
   
   return (
     <div className='flex flex-col gap-4'>
-      <h4 className='text-xl font-[600]'>Filtros:</h4>
+      <h4 className='text-xl font-[600]'>Naves: {starshipsData.data.count}</h4>
 
       <div className='flex items-center gap-4'>
         {/* <Filter
@@ -52,7 +52,7 @@ export default function StarshipsFilters() {
         <SearchInput 
           handleSearchValue={starshipsData.handleSearch}
           onSearchItems={handleSearchStarships}
-          placeholder='Busca una pelicula...'
+          placeholder='Busca una nave...'
         />
       </div>
     </div>

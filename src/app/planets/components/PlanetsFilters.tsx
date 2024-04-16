@@ -34,7 +34,8 @@ export default function PlanetsFilters() {
   
   return (
     <div className='flex flex-col gap-4'>
-      <h4 className='text-xl font-[600]'>Filtros:</h4>
+      <h4 className='text-xl font-[600]'>Planetas: {planetsData.data.count}</h4>
+
 
       <div className='flex items-center gap-4'>
         {/* <Filter

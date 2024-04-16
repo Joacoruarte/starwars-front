@@ -12,6 +12,8 @@ export default function Films() {
 
   return (
     <div className={`${poppins.className} flex flex-col gap-4 w-full`}>
+      <h4 className='text-xl font-[600]'>Peliculas: {filmsResults}</h4>
+
       <ListOfItems
         pageHistory={filmsData.data}
         onGetData={filmsData.fetchDataByPage}

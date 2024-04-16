@@ -88,7 +88,13 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
 
   return (
     <div className='flex flex-col gap-4'>
-      <h4 className='text-xl font-[600]'>Filtros:</h4>
+      <div className='flex flex-col gap-4'>
+        <h4 className='text-xl font-[600]'>Personajes: {charactersData.data.count}</h4>
+
+        <h5 className='text-xl underline underline-offset-4'>
+          Filtros
+        </h5>
+      </div>
 
       <div className='flex flex-wrap items-center gap-4'>
         {/* SPECIES FILTER */}
