@@ -7,7 +7,7 @@ interface PlanetsProps {
   planets: PlanetResponse;
 }
 
-export default function ContainerPlanets({ planets }: PlanetsProps) {  
+export default function ContainerPlanets({ planets }: PlanetsProps) {
   return (
     <StarWarsProvider entity={Entity.PLANETS} defaultData={planets}>
       <Planets />
