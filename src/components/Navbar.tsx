@@ -61,7 +61,7 @@ export default function Navbar() {
             isActive,
         })}
       >
-        {routes.map((route, index) => (
+        {routes.map((route) => (
           <li
             key={route.path}
             className={clsx(

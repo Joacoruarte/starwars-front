@@ -17,7 +17,7 @@ export default async function CharacterDetailPage({
       character = await getCharacterById(params.id);
     }
   } catch (error: any) {
-    if (error.message === 'Character not found') {
+    if ('message' in error && error.message === 'Character not found') {
       redirect('/characters');
     }
   }

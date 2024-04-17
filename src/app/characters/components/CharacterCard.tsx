@@ -1,5 +1,10 @@
-import Link from 'next/link';
+import ContainerEntityCard from '@/components/ContainerEntityCard';
 import type { Character } from '../models/character.t';
+
+type CharacterCardProps = Pick<
+  Character,
+  'id' | 'name' | 'height' | 'mass' | 'gender' | 'species'
+>;
 
 export default function CharacterCard({
   id,
@@ -8,17 +13,9 @@ export default function CharacterCard({
   mass,
   gender,
   species,
-}: Partial<Character>) {
+}: CharacterCardProps) {
   return (
-    <article className='bg-light-gray rounded-xl p-6 shadow-xl'>
-      <div className='mb-4'>
-        <Link prefetch={true} href={`/characters/${id}`}>
-          <p className='text-xl font-semibold text-white hover:text-yellow-sw transition-colors duration-200 cursor-pointer font-starwarsalternate'>
-            {name}
-          </p>
-        </Link>
-        <div className='w-full h-[1px] bg-gray-600' />
-      </div>
+    <ContainerEntityCard id={id} entityTitle={name} redirectPath={'characters'}>
       <div className='mb-4'>
         <h4 className='text-lg font-semibold text-white'>Altura:</h4>
         <p className='text-lg text-gray-300'>
@@ -39,14 +36,6 @@ export default function CharacterCard({
         <h4 className='text-lg font-semibold text-white'>Especie:</h4>
         <p className='text-lg text-gray-300'>{species?.[0] || 'Unknown'}</p>
       </div>
-
-      <div className='flex w-full justify-end'>
-        <Link prefetch={true} href={`/characters/${id}`}>
-          <button className='common-button'>
-            Ver más
-          </button>
-        </Link>
-      </div>
-    </article>
+    </ContainerEntityCard>
   );
 }

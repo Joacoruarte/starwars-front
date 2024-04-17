@@ -1,8 +1,6 @@
 import { getSpecies } from '@/services/species.service';
-import Characters from './components/Characters';
-import { getCharacters } from './services/character.service';
-import CharactersProvider from './provider/Characters.provider';
 import ContainerCharacters from './components/ContainerCharacters';
+import { getCharacters } from './services/character.service';
 
 export default async function CharactersPage() {
   const charactersResponse = await getCharacters({});

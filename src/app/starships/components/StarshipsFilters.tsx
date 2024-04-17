@@ -23,7 +23,7 @@ export default function StarshipsFilters() {
           starshipsData.handleLoading(true)
           starshipsData.handleErrorMessage(error.message)
           return
-        };
+        }
         starshipsData.handleErrorMessage('Error fetching characters');
       } finally {
         if (!controller.signal.aborted) {

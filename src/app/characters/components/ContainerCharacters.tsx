@@ -1,10 +1,8 @@
-import React from 'react';
-import Characters from './Characters';
-import CharactersProvider from '../provider/Characters.provider';
-import { CharacterResponse } from '../models/character.t';
 import { Specie } from '@/models';
-import { StarWarsProvider } from '@/provider/StarWars.provider';
 import { Entity } from '@/models/enums/entity.enum';
+import { StarWarsProvider } from '@/provider/StarWars.provider';
+import { CharacterResponse } from '../models/character.t';
+import Characters from './Characters';
 
 interface ContainerCharactersProps {
   characters: CharacterResponse;

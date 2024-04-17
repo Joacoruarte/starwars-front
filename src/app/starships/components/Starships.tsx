@@ -28,7 +28,6 @@ export default function Starships() {
               id={starship?.id}
               name={starship?.name}
               model={starship?.model}
-              manufacturer={starship?.manufacturer}
               cargo_capacity={starship?.cargo_capacity}
               cost_in_credits={starship?.cost_in_credits}
             />

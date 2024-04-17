@@ -77,7 +77,7 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
         charactersData.handleLoading(true)
         charactersData.handleErrorMessage(error.message)
         return
-      };
+      }
       charactersData.handleErrorMessage('Error fetching characters');
     } finally {
       if (!controller.signal.aborted) {

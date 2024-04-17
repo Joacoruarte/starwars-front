@@ -23,7 +23,7 @@ export default function PlanetsFilters() {
           planetsData.handleLoading(true)
           planetsData.handleErrorMessage(error.message)
           return
-        };
+        }
         planetsData.handleErrorMessage('Error fetching characters');
       } finally {
         if (!controller.signal.aborted) {
