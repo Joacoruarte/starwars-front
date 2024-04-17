@@ -2,6 +2,7 @@ import React from 'react';
 import { Film } from '../../models/film.t';
 import { Character } from '@/app/characters/models/character.t';
 import Link from 'next/link';
+import { ArrowLeftIcon } from '@heroicons/react/16/solid';
 
 interface FilmDetailProps {
   film: Film | undefined;
@@ -15,6 +16,15 @@ export default function FilmDetail({ film }: FilmDetailProps) {
           <h1 className='text-2xl'>Pelicula no econtrada</h1>
         </div>
       )}
+
+      <div className='mb-4'>
+        <Link href='/films' className='flex items-center gap-2 w-fit'>
+          <ArrowLeftIcon className='h-6 w-6 text-white' />
+          <span className='text-white font-starwarsalternate text-lg'>
+            Volver a peliculas
+          </span>
+        </Link>
+      </div>
 
       {film && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
@@ -30,14 +40,18 @@ export default function FilmDetail({ film }: FilmDetailProps) {
             </h4>
             <ul className='flex w-full flex-wrap items-center gap-2'>
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Director:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Director:
+                </p>
                 <p className='text-base text-gray-300'>
                   {film.director === 'unknown' ? '- ,' : `${film.director},`}
                 </p>
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Productor:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Productor:
+                </p>
                 <p className='text-base text-gray-300'>
                   {film.producer === 'unknown' ? '- ,' : `${film.producer},`}
                 </p>

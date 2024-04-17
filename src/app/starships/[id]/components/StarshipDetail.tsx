@@ -2,6 +2,7 @@ import { Character } from '@/app/characters/models/character.t';
 import { Starship } from '../../models/starship.t';
 import Link from 'next/link';
 import { Film } from '@/app/films/models/film.t';
+import { ArrowLeftIcon } from '@heroicons/react/16/solid';
 
 interface StarshipDetailProps {
   starship: Starship | undefined;
@@ -15,6 +16,15 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
           <h1 className='text-2xl'>Nave no encontrada</h1>
         </div>
       )}
+
+      <div className='mb-4'>
+        <Link href='/starships' className='flex items-center gap-2 w-fit'>
+          <ArrowLeftIcon className='h-6 w-6 text-white' />
+          <span className='text-white font-starwarsalternate text-lg'>
+            Volver a naves
+          </span>
+        </Link>
+      </div>
 
       {starship && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
@@ -30,7 +40,9 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
             </h4>
             <ul className='flex w-full flex-wrap items-center gap-2'>
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Modelo:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Modelo:
+                </p>
                 <p className='text-base text-gray-300'>
                   {starship.model === 'unknown' ? '- ,' : `${starship.model},`}
                 </p>

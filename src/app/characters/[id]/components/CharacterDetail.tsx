@@ -2,6 +2,7 @@ import { Film } from '@/app/films/models/film.t';
 import { Character } from '../../models/character.t';
 import Link from 'next/link';
 import { Starship } from '@/app/starships/models/starship.t';
+import { ArrowLeftIcon } from '@heroicons/react/16/solid';
 
 interface CharacterDetailProps {
   character: Character | undefined;
@@ -15,6 +16,15 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
           <h1 className='text-2xl'>Personaje no encontrado</h1>
         </div>
       )}
+
+      <div className='mb-4'>
+        <Link href='/characters' className='flex items-center gap-2 w-fit'>
+          <ArrowLeftIcon className='h-6 w-6 text-white' />
+          <span className='text-white font-starwarsalternate text-lg'>
+            Volver a personajes
+          </span>
+        </Link>
+      </div>
 
       {character && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
@@ -30,7 +40,9 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
             </h4>
             <ul className='flex w-full flex-wrap items-center gap-2'>
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Altura:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Altura:
+                </p>
                 <p className='text-base text-gray-300'>
                   {character.height === 'unknown'
                     ? '- ,'
@@ -39,7 +51,9 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Peso:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Peso:
+                </p>
                 <p className='text-base text-gray-300'>
                   {character.mass === 'unknown'
                     ? '- ,'
@@ -48,12 +62,16 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Genero:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Genero:
+                </p>
                 <p className='text-base text-gray-300'>{character.gender},</p>
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Especie:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Especie:
+                </p>
                 <p className='text-base text-gray-300'>
                   {character.species?.[0]},
                 </p>

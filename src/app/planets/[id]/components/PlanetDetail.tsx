@@ -1,8 +1,8 @@
 import { Character } from '@/app/characters/models/character.t';
 import { Film } from '@/app/films/models/film.t';
 import { Planet } from '@/app/planets/models/planet.t';
+import { ArrowLeftIcon } from '@heroicons/react/16/solid';
 import Link from 'next/link';
-import React from 'react';
 
 interface PlanetDetailProps {
   planet: Planet | undefined;
@@ -16,6 +16,15 @@ export default function PlanetDetail({ planet }: PlanetDetailProps) {
           <h1 className='text-2xl'>Planeta no encontrado</h1>
         </div>
       )}
+
+      <div className='mb-4'>
+        <Link href='/planets' className='flex items-center gap-2 w-fit'>
+          <ArrowLeftIcon className='h-6 w-6 text-white' />
+          <span className='text-white font-starwarsalternate text-lg'>
+            Volver a planetas
+          </span>
+        </Link>
+      </div>
 
       {planet && (
         <div className='flex flex-col gap-4 rounded-lg p-4 justify-center items-center bg-light-gray'>
@@ -31,24 +40,32 @@ export default function PlanetDetail({ planet }: PlanetDetailProps) {
             </h4>
             <ul className='flex w-full flex-wrap items-center gap-2'>
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Clima:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Clima:
+                </p>
                 <p className='text-base text-gray-300'>
                   {planet.climate === 'unknown' ? '- ,' : `${planet.climate},`}
                 </p>
               </li>
 
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Gravedad:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Gravedad:
+                </p>
                 <p className='text-base text-gray-300'>
                   {planet.gravity === 'unknown' ? '- ,' : `${planet.gravity},`}
                 </p>
               </li>
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Poblacion:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Poblacion:
+                </p>
                 <p className='text-base text-gray-300'>{planet.population}</p>
               </li>
               <li className='flex items-center gap-2'>
-                <p className='sm:text-lg text-md font-semibold text-white'>Terreno:</p>
+                <p className='sm:text-lg text-md font-semibold text-white'>
+                  Terreno:
+                </p>
                 <p className='text-base text-gray-300'>{planet.terrain}.</p>
               </li>
             </ul>
