@@ -26,7 +26,7 @@ export default function Characters({ species }: CharactersProps) {
         loading={charactersData.loading}
         pageCount={pageCount}
       >
-        {charactersData.data.results[charactersData.currentPage]?.map(
+        {charactersData.data.results?.[charactersData.currentPage]?.map(
           (character) => (
             <CharacterCard
               key={character?.id}

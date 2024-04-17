@@ -21,7 +21,7 @@ export default function Starships() {
         loading={starshipsData.loading}
         pageCount={pageCount}
       >
-        {starshipsData.data.results[starshipsData.currentPage].map(
+        {starshipsData.data.results?.[starshipsData.currentPage]?.map(
           (starship) => (
             <StarshipCard
               key={starship?.id}

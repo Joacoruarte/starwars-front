@@ -21,7 +21,7 @@ export default function Planets() {
         loading={planetsData.loading}
         pageCount={pageCount}
       >
-        {planetsData.data.results[planetsData.currentPage].map((starship) => (
+        {planetsData.data.results?.[planetsData.currentPage]?.map((starship) => (
           <PlanetCard
             key={starship?.id}
             id={starship?.id}
