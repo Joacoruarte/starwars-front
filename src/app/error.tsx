@@ -1,11 +1,9 @@
-'use client'; // Error components must be Client Components
-
-import Link from 'next/link';
-import { useEffect } from 'react';
-import { poppins } from '../fonts';
+'use client'
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { poppins } from './fonts';
 
-export default function Error({
+export default function GlobalError({
   error,
   reset,
 }: {
