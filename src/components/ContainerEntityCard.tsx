@@ -16,7 +16,7 @@ export default function ContainerEntityCard({
   return (
     <article className='bg-light-gray rounded-xl p-6 shadow-xl'>
       <div className='mb-4'>
-        <Link prefetch={true} href={`/characters/${id}`}>
+        <Link prefetch={true} href={`/${redirectPath}/${id}`}>
           <p className='text-xl font-semibold text-white hover:text-yellow-sw transition-colors duration-200 cursor-pointer font-starwarsalternate'>
             {entityTitle}
           </p>
