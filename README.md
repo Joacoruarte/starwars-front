@@ -48,6 +48,6 @@ npm run dev
 
 Una vez que el servidor esté en funcionamiento, abre tu navegador y ve a [http://localhost:3000](http://localhost:3000) para ver la aplicación.
 
-## Deploy
+## Deploy en Vercel
 
 [Sitio web](https://conexa-front-nine.vercel.app/) 
