@@ -1,5 +1,4 @@
 'use client';
-import { Specie } from '@/models';
 import { useState } from 'react';
 import { Character } from '../models/character.t';
 import SearchInput from './SearchInput';
@@ -9,6 +8,7 @@ import {
 } from '../services/character.service';
 import Filter from '@/components/Filter';
 import { useStarWarsContextTyped } from '@/provider/starwars.hook';
+import { Specie } from '../models/species.t';
 
 interface CharacterFiltersProps {
   species: Specie[];

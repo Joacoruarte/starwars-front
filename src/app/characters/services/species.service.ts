@@ -1,4 +1,4 @@
-import { Specie } from "@/models/interfaces/species.t"
+import { Specie } from "../models/species.t";
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
 

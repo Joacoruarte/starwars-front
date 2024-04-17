@@ -1,11 +1,11 @@
 'use client';
 import type { Character } from '../models/character.t';
-import { Specie } from '@/models';
 import { poppins } from '@/app/fonts';
 import ListOfItems from '@/components/ListOfItems';
 import CharacterFilters from './CharacterFilters';
 import CharacterCard from './CharacterCard';
 import { useStarWarsContextTyped } from '@/provider/starwars.hook';
+import { Specie } from '../models/species.t';
 
 interface CharactersProps {
   species: Specie[];
