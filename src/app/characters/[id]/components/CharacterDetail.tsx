@@ -1,14 +1,19 @@
+'use client';
 import { Film } from '@/app/films/models/film.t';
 import { Character } from '../../models/character.t';
 import Link from 'next/link';
 import { Starship } from '@/app/starships/models/starship.t';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid';
+import { useRouter } from 'next/navigation';
 
 interface CharacterDetailProps {
   character: Character | undefined;
 }
 
 export default function CharacterDetail({ character }: CharacterDetailProps) {
+  const router = useRouter();
+  const goBack = () => router.back();
+
   return (
     <>
       {!character && (
@@ -18,12 +23,12 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
       )}
 
       <div className='mb-4'>
-        <Link href='/characters' className='flex items-center gap-2 w-fit'>
+        <button onClick={goBack} className='flex items-center gap-2 w-fit'>
           <ArrowLeftIcon className='h-6 w-6 text-white' />
           <span className='text-white font-starwarsalternate text-lg'>
-            Volver a personajes
+            Volver
           </span>
-        </Link>
+        </button>
       </div>
 
       {character && (

@@ -1,14 +1,19 @@
+'use client';
 import { Character } from '@/app/characters/models/character.t';
 import { Film } from '@/app/films/models/film.t';
 import { Planet } from '@/app/planets/models/planet.t';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface PlanetDetailProps {
   planet: Planet | undefined;
 }
 
 export default function PlanetDetail({ planet }: PlanetDetailProps) {
+  const router = useRouter();
+  const goBack = () => router.back();
+
   return (
     <>
       {!planet && (
@@ -18,12 +23,12 @@ export default function PlanetDetail({ planet }: PlanetDetailProps) {
       )}
 
       <div className='mb-4'>
-        <Link href='/planets' className='flex items-center gap-2 w-fit'>
+        <button onClick={goBack} className='flex items-center gap-2 w-fit'>
           <ArrowLeftIcon className='h-6 w-6 text-white' />
           <span className='text-white font-starwarsalternate text-lg'>
-            Volver a planetas
+            Volver
           </span>
-        </Link>
+        </button>
       </div>
 
       {planet && (

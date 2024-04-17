@@ -1,14 +1,19 @@
+'use client';
 import React from 'react';
 import { Film } from '../../models/film.t';
 import { Character } from '@/app/characters/models/character.t';
 import Link from 'next/link';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid';
+import { useRouter } from 'next/navigation';
 
 interface FilmDetailProps {
   film: Film | undefined;
 }
 
 export default function FilmDetail({ film }: FilmDetailProps) {
+  const router = useRouter();
+  const goBack = () => router.back();
+
   return (
     <>
       {!film && (
@@ -18,12 +23,12 @@ export default function FilmDetail({ film }: FilmDetailProps) {
       )}
 
       <div className='mb-4'>
-        <Link href='/films' className='flex items-center gap-2 w-fit'>
+        <button onClick={goBack} className='flex items-center gap-2 w-fit'>
           <ArrowLeftIcon className='h-6 w-6 text-white' />
           <span className='text-white font-starwarsalternate text-lg'>
-            Volver a peliculas
+            Volver
           </span>
-        </Link>
+        </button>
       </div>
 
       {film && (
@@ -95,9 +100,7 @@ export default function FilmDetail({ film }: FilmDetailProps) {
             <h4 className='sm:text-xl text-lg underline underline-offset-4 text-left font-semibold text-white'>
               Descripción 📜:
             </h4>
-            <p className='text-lg text-gray-300'>
-              {film.opening_crawl}
-            </p>
+            <p className='text-lg text-gray-300'>{film.opening_crawl}</p>
           </div>
         </div>
       )}

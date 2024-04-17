@@ -1,14 +1,19 @@
+'use client';
 import { Character } from '@/app/characters/models/character.t';
 import { Starship } from '../../models/starship.t';
 import Link from 'next/link';
 import { Film } from '@/app/films/models/film.t';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid';
+import { useRouter } from 'next/navigation';
 
 interface StarshipDetailProps {
   starship: Starship | undefined;
 }
 
 export default function StarshipDetail({ starship }: StarshipDetailProps) {
+  const router = useRouter();
+  const goBack = () => router.back();
+
   return (
     <>
       {!starship && (
@@ -18,12 +23,12 @@ export default function StarshipDetail({ starship }: StarshipDetailProps) {
       )}
 
       <div className='mb-4'>
-        <Link href='/starships' className='flex items-center gap-2 w-fit'>
+        <button onClick={goBack} className='flex items-center gap-2 w-fit'>
           <ArrowLeftIcon className='h-6 w-6 text-white' />
           <span className='text-white font-starwarsalternate text-lg'>
-            Volver a naves
+            Volver
           </span>
-        </Link>
+        </button>
       </div>
 
       {starship && (
