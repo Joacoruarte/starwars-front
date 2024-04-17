@@ -76,7 +76,7 @@ export const StarWarsProvider = ({
         });
       }
     } catch (error) {
-      console.log('Error fetching data', error);
+      handleErrorMessage('Error fetching data');
     } finally {
       handleLoading(false);
     }

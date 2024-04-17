@@ -22,31 +22,34 @@ export default function ListOfItems({
   pageCount,
   onGetData,
 }: ListOfItemsProps) {
-  const charactersData = useStarWarsContextTyped();
+  const starwarsData = useStarWarsContextTyped();
   const isShowNextLabel =
-    charactersData.currentPage === pageCount - 1 || pageCount === 1;
-  const isShowPreviousLabel = charactersData.currentPage === 0;
+    starwarsData.currentPage === pageCount - 1 || pageCount === 1;
+  const isShowPreviousLabel = starwarsData.currentPage === 0;
 
   const handlePageClick = (selectedPage: number) => {
-    charactersData.handleCurrentPage(selectedPage);
+    starwarsData.handleCurrentPage(selectedPage);
     if (pageHistory.results[selectedPage]?.length > 0) return;
-    onGetData(`${selectedPage + 1}`, charactersData.search);
+    onGetData(`${selectedPage + 1}`, starwarsData.search);
   };
 
   return (
     <div>
       {loading ? (
         <div className='grid place-content-center w-full h-[80dvh]'>
-          <div className='-mt-[20rem]'>
+          <div className='-mt-[10rem]'>
             <PlanetLoading title='Cargando' />
           </div>
         </div>
       ) : (
         <>
-          {pageHistory.results.flat().length === 0 ? (
+          {pageHistory.results.flat().length === 0 ||
+          (starwarsData.error && starwarsData.error.length > 0) ? (
             <div className='grid place-content-center w-full h-[400px]'>
               <h2 className='text-2xl text-center'>
-                No se encontraron personajes.
+                {starwarsData.error && starwarsData.error?.length > 0
+                  ? 'Error al cargar los personajes. Intente nuevamente.'
+                  : 'No se encontraron personajes.'}
               </h2>
             </div>
           ) : (
@@ -62,7 +65,7 @@ export default function ListOfItems({
         previousLabel={isShowPreviousLabel ? '' : '< Previous'}
         pageCount={pageCount}
         marginPagesDisplayed={2}
-        forcePage={charactersData.currentPage}
+        forcePage={starwarsData.currentPage}
         pageRangeDisplayed={5}
         onPageChange={({ selected }) => handlePageClick(selected)}
         containerClassName='pagination'

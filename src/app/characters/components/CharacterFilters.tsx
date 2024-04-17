@@ -37,8 +37,9 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
       try {
         const response = await getCharacters({});
         charactersData.handleUpdateAllDataByFilter(response.results, response.count);
-      } catch (error) {
-        console.log('Error fetching characters');
+      } catch (error: any) {
+        if (error.name === 'AbortError') return
+        charactersData.handleErrorMessage('Error fetching characters by specie');
       } finally {
         charactersData.handleLoading(false);
       }
@@ -55,7 +56,7 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
       const response = await getCharactersBySpecieId(id);
       charactersData.handleUpdateAllDataByFilter(response.results);
     } catch (error) {
-      console.log('Error fetching characters by specie');
+      charactersData.handleErrorMessage('Error fetching characters by specie');
     } finally {
       charactersData.handleLoading(false);
     }
@@ -67,6 +68,7 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
       handleSpecie('Todos');
       if (controller.signal.aborted) {
         if (charactersData.loading) charactersData.handleLoading(false);
+        charactersData.handleErrorMessage('')
         return;
       }
       charactersData.handleLoading(true);      
@@ -75,7 +77,6 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
     } catch (error: any) {
       if ('message' in error && error.message === 'Request aborted') { 
         charactersData.handleLoading(true)
-        charactersData.handleErrorMessage(error.message)
         return
       }
       charactersData.handleErrorMessage('Error fetching characters');
@@ -105,7 +106,7 @@ export default function CharacterFilters({ species }: CharacterFiltersProps) {
           onOpenItemsDropdown={handleSpeciesDropdown}
           openItemsDropdown={openSpeciesDrowpDown}
           selectedItem={selectedSpecie}
-          isFilterable={charactersData.search.length === 0}
+          isFilterable={charactersData.search.length === 0 && !charactersData.loading}
           itemPropertyName='name'
         />
 

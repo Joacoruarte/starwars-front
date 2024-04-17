@@ -61,7 +61,7 @@ export default function FilmDetail({ film }: FilmDetailProps) {
                 <p className='sm:text-lg text-md font-semibold text-white'>
                   Fecha de lanzamiento:
                 </p>
-                <p className='text-base text-gray-300'>{film.release_date},</p>
+                <p className='text-base text-gray-300'>{film.release_date}.</p>
               </li>
             </ul>
           </div>
