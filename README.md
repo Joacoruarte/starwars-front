@@ -14,13 +14,13 @@ Asegúrate de tener [Node.js](https://nodejs.org) y [npm](https://www.npmjs.com/
 1. Clona este repositorio en tu máquina local usando:
 
 ```bash
-git clone https://github.com/Joacoruarte/conexa-front.git
+git clone https://github.com/Joacoruarte/starwars-front.git
 ```
 
 2. Entra en el directorio del proyecto:
 
 ```bash
-cd conexa-front
+cd starwars-front
 ```
 
 3. Instala las dependencias necesarias utilizando npm:
@@ -35,7 +35,7 @@ Clonar el archivo ```.env.example``` y renombrarlo a ```.env```
 cp .env.example .env
 ```
 
-5. Clona el [repositorio](https://github.com/Joacoruarte/conexa-api) de la API que utiliza este projecto y sigue los pasos de instalacion y prende el servidor.
+5. Clona el [repositorio](https://github.com/Joacoruarte/starwars-api) de la API que utiliza este projecto y sigue los pasos de instalacion y prende el servidor.
 
 
 ## Uso
