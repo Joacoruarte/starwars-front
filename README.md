@@ -29,6 +29,12 @@ cd conexa-front
 npm install
 ```
 
+4. Variables de entorno:
+Clonar el archivo ```.env.example``` y renombrarlo a ```.env```
+```bash
+cp .env.example .env
+```
+
 ## Uso
 
 Para iniciar el servidor de desarrollo, ejecuta el siguiente comando:
