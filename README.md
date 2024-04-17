@@ -35,7 +35,7 @@ Clonar el archivo ```.env.example``` y renombrarlo a ```.env```
 cp .env.example .env
 ```
 
-5. Clona el [repositorio](https://github.com/Joacoruarte/conexa-api) de la API que utiliza este projecto y sigue los pasos de instalacion
+5. Clona el [repositorio](https://github.com/Joacoruarte/conexa-api) de la API que utiliza este projecto y sigue los pasos de instalacion y prende el servidor.
 
 
 ## Uso
