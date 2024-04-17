@@ -95,7 +95,7 @@ export default function FilmDetail({ film }: FilmDetailProps) {
             <h4 className='sm:text-xl text-lg underline underline-offset-4 text-left font-semibold text-white'>
               Descripción 📜:
             </h4>
-            <p className='text-lg text-gray-300 line-clamp-4 text-ellipsis'>
+            <p className='text-lg text-gray-300'>
               {film.opening_crawl}
             </p>
           </div>

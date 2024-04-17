@@ -12,7 +12,7 @@ export default function PlanetCard({
     <ContainerEntityCard id={id} entityTitle={name} redirectPath={'planets'}>
       <div className='mb-4'>
         <h4 className='text-lg font-semibold text-white'>Clima:</h4>
-        <p className='text-lg text-gray-300 line-clamp-4 text-ellipsis'>
+        <p className='text-lg text-gray-300'>
           {climate}
         </p>
       </div>

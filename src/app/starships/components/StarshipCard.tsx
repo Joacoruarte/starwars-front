@@ -15,7 +15,7 @@ export default function StarshipCard({
     <ContainerEntityCard id={id} entityTitle={name} redirectPath={'starships'}>
       <div className='mb-4'>
         <h4 className='text-lg font-semibold text-white'>Model:</h4>
-        <p className='text-lg text-gray-300 line-clamp-4 text-ellipsis'>
+        <p className='text-lg text-gray-300'>
           {model}
         </p>
       </div>
