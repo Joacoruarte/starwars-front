@@ -1,6 +1,8 @@
-
-'use client'
-import { StarWarsResponse, StarWarsEntity } from '@/provider/starwars-provider.t';
+'use client';
+import {
+  StarWarsResponse,
+  StarWarsEntity,
+} from '@/provider/starwars-provider.t';
 import PlanetLoading from './PlanetLoading/PlanetLoading';
 import ReactPaginate from 'react-paginate';
 import { useStarWarsContextTyped } from '@/provider/starwars.hook';
@@ -34,8 +36,10 @@ export default function ListOfItems({
   return (
     <div>
       {loading ? (
-        <div className='grid place-content-center w-full h-[400px]'>
-          <PlanetLoading title='Cargando' />
+        <div className='grid place-content-center w-full h-[80dvh]'>
+          <div className='-mt-[20rem]'>
+            <PlanetLoading title='Cargando' />
+          </div>
         </div>
       ) : (
         <>
@@ -65,7 +69,7 @@ export default function ListOfItems({
         activeClassName='text-yellow-400'
         className={`${
           loading || pageCount <= 1 ? 'hidden' : 'flex'
-        } gap-4 max-w-max mx-auto`}
+        } gap-4 max-w-max mx-auto mt-4`}
       />
     </div>
   );

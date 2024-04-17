@@ -34,16 +34,21 @@ export default function Filter<T extends Record<string, any>>({
               !openItemsDropdown && isFilterable,
           }
         )}
-        onClick={()=> {
+        onClick={() => {
           if (!isFilterable) return;
-          onOpenItemsDropdown()
+          onOpenItemsDropdown();
         }}
       >
-        <span>{selectedItem}</span>
-        {isFilterable && <ChevronDownIcon className='w-7 h-7' />}
+        <span className={clsx({ ['relative -right-4']: !isFilterable })}>
+          {selectedItem}
+        </span>
+        <ChevronDownIcon
+          className={clsx('w-7 h-7', { ['opacity-0']: !isFilterable })}
+        />
         <div
           className={clsx({
-            ['flex flex-col top-12 left-0 py-0 px-2 opacity-0 absolute max-h-0 max-w-full overflow-hidden transition-all duration-300 rounded-3xl']: !openItemsDropdown,
+            ['flex flex-col top-12 left-0 py-0 px-2 opacity-0 absolute max-h-0 max-w-full overflow-hidden transition-all duration-300 rounded-3xl']:
+              !openItemsDropdown,
             ['flex overflow-y-auto opacity-100 transition-all duration-300 max-w-full z-20 flex-col gap-2 absolute top-12 left-0 bg-light-gray rounded-3xl border px-2 py-2 max-h-40']:
               openItemsDropdown,
           })}

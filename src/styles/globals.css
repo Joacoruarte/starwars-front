@@ -60,6 +60,10 @@
     @apply sm:flex sm:gap-8 gap-10 flex sm:flex-row flex-col sm:justify-end justify-center items-center sm:[position:unset] fixed sm:right-0 top-1/2 left-1/2 z-50 sm:translate-x-0 sm:translate-y-0 -translate-x-1/2 -translate-y-1/2 sm:backdrop-blur-none sm:bg-none backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] bg-[#061727b1] sm:w-auto w-screen sm:h-auto h-[100dvh];
   }
 
+  .common-button {
+    @apply bg-yellow-sw hover:bg-[#bc9803] transition-colors duration-200 text-black px-4 py-2 rounded-md font-semibold;
+  }
+
   @media (max-width: 1024px) {
     .starwars-logo {
       filter: brightness(1.9) drop-shadow(-1px 0px 0px yellow);

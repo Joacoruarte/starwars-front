@@ -42,7 +42,7 @@ export default function CharacterCard({
 
       <div className='flex w-full justify-end'>
         <Link prefetch={true} href={`/characters/${id}`}>
-          <button className='bg-yellow-sw hover:bg-[#bc9803] transition-colors duration-200 text-black px-4 py-2 rounded-md font-semibold '>
+          <button className='common-button'>
             Ver más
           </button>
         </Link>
